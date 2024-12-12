@@ -4,12 +4,18 @@
     <name>code-assistant</name>
     <vendor>felixng21</vendor>
 
-    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.python</depends>
+    <idea-version since-build="233" until-build="242.*"/>
 
     <resource-bundle>messages.MyBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.felixng21.codeassistant.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <inline.completion.provider
+                language="Python"
+                implementationClass="com.github.felixng21.codeassistant.completion.PythonCompletionProvider"/>
+<!--        <projectService serviceInterface="com.github.felixng21.codeassistant.services.CompletionService"-->
+<!--                        serviceImplementation="com.github.felixng21.codeassistant.services.impl.CompletionServiceImpl"/>-->
+<!--        <localInspection implementationClass="com.github.felixng21.codeassistant.inspections.LocalInspectionTool"/>-->
     </extensions>
 
     <applicationListeners>
